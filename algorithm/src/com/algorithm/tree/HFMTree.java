@@ -11,11 +11,16 @@ public class HFMTree {
 
     private final PriorityQueue<Node> priorityQueue;
     private final List<Node> nodeList;
+    private final Map<Character, String> dictionary;
+    private final Map<String, Character> deDictionary;
+
     private Node root;
 
     public HFMTree(Map<Character, Integer> dictionary) {
         priorityQueue = new PriorityQueue<>(dictionary.size());
         nodeList = new ArrayList<>(dictionary.size());
+        this.dictionary = new HashMap<>(dictionary.size());
+        this.deDictionary = new HashMap<>(dictionary.size());
         dictionary.forEach((chars, weight) -> {
             Node node = new Node(chars.toString(), weight);
             priorityQueue.add(node);
@@ -23,17 +28,43 @@ public class HFMTree {
         });
     }
 
-    public void encode() {
+    public String decode(String binary) {
+        char[] chars = binary.toCharArray();
+        StringBuilder message = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
+        for (Character aChar : chars) {
+            sb.append(aChar);
+            Character character = deDictionary.get(sb.toString());
+            if (character != null){
+                message.append(character);
+                sb = new StringBuilder();
+            }
+        }
+        return message.toString();
+    }
+
+    public String encode(String message) {
+        char[] chars = message.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        for (char aChar : chars) {
+            sb.append(dictionary.get(aChar));
+        }
+        return sb.toString();
+    }
+
+    public void code() {
         nodeList.forEach(node -> {
             String chars = node.chars;
             String code = "";
             do {
                 if (node.parent.left == node) {
                     code = "0" + code;
-                }else
+                } else
                     code = "1" + code;
                 node = node.parent;
-            }while (node.parent != null);
+            } while (node.parent != null);
+            dictionary.put(chars.charAt(0), code);
+            deDictionary.put(code, chars.charAt(0));
             System.out.println(chars + ":" + code);
         });
     }
@@ -84,6 +115,9 @@ public class HFMTree {
         dictionary.put('g', 22);
         HFMTree hfmTree = new HFMTree(dictionary);
         hfmTree.create();
-        hfmTree.encode();
+        hfmTree.code();
+        String binary = hfmTree.encode("abcdefg");
+        System.out.println(binary);
+        System.out.println(hfmTree.decode(binary));
     }
 }
