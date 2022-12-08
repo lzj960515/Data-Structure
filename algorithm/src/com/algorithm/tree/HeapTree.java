@@ -61,6 +61,7 @@ public class HeapTree {
     public void createHeap(int[] arr) {
         this.arr = arr;
         int len = arr.length;
+        // 从最后一个[非叶子]结点开始
         for (int i = len / 2 - 1; i >= 0; i--) {
             heapIndex(i, len);
         }
@@ -80,7 +81,7 @@ public class HeapTree {
     }
 
     public static void main(String[] args) {
-        int[] arr = {30, 23, 17, 18, 5, 10};
+        int[] arr = {30, 23, 17, 18, 5, 10, 11};
         HeapTree heapTree = new HeapTree();
         heapTree.createHeap(arr);
         heapTree.sort();
