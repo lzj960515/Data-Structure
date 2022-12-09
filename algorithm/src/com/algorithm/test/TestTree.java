@@ -12,6 +12,7 @@ import com.algorithm.tree.TreeNode;
 public class TestTree {
 
     public static void main(String[] args) {
+        testMyTree();
         BinarySelectTree<Integer> binarySelectTree = new BinarySelectTree();
         binarySelectTree.insert(5,5);
         binarySelectTree.insert(3,3);
