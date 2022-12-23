@@ -15,7 +15,9 @@ public class MergeSort {
     }
 
     public static void split(int left, int right, int[] arr) {
-        if (left == right) return;
+        if (left == right){
+            return;
+        }
         int mid = (left + right) / 2;//拆分的中间值
         split(left, mid, arr);
         split(mid + 1, right, arr);
