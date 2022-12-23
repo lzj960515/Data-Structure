@@ -20,7 +20,7 @@ public class HeapTree {
     }
 
     /**
-     * 堆化方法
+     * 堆化方法，小顶堆
      *
      * @param start {@code int} 化堆结点
      * @param end   {@code int} 化堆结束点
@@ -46,9 +46,11 @@ public class HeapTree {
      */
     public void sort() {
         for (int i = arr.length - 1; i > 0; i--) {
+            // 将小顶堆的根节点（最小的数）放到最后
             int temp = arr[0];
             arr[0] = arr[i];
             arr[i] = temp;
+            // 继续化堆
             heapIndex(0, i);
         }
     }
@@ -68,7 +70,7 @@ public class HeapTree {
     }
 
     /**
-     * top K 问题
+     * top K 问题，找最大的k个数
      *
      * @param number
      */

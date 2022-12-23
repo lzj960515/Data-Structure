@@ -1,13 +1,10 @@
 package com.algorithm.tree;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
 
 /**
- * Top K 问题
+ * Top K 问题 给你1亿个的数字（整数，1~2^32-1），求出前10大的数字，还可动态添加新数字。
  *
  * @author Zijian Liao
  * @since 1.0
