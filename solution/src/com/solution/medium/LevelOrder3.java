@@ -23,11 +23,6 @@ import java.util.*;
  *
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode.cn/problems/cong-shang-dao-xia-da-yin-er-cha-shu-iii-lcof
- * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
- *
- *
- * 来源：力扣（LeetCode）
- * 链接：https://leetcode.cn/problems/cong-shang-dao-xia-da-yin-er-cha-shu-lcof
  */
 public class LevelOrder3 {
 
