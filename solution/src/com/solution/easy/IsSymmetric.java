@@ -43,6 +43,8 @@ public class IsSymmetric {
     private boolean isSymmetric(TreeNode left, TreeNode right){
         if(left != null && right != null) {
             if(left.val == right.val){
+                // 怎么形容呢。。意思就是两条路，一条路往左走，一条路往右走，走到头 && 再往回走
+                // 根左右和根右左
                 return isSymmetric(left.left, right.right) && isSymmetric(left.right, right.left);
             }
         }
