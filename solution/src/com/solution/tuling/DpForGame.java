@@ -7,6 +7,12 @@ package com.solution.tuling;
 public class DpForGame {
 
     public static int dp(int[] value, int[] size, int bagSize){
+        // 三个物品，价值和占格分别为
+        // 1. 1500 | 1
+        // 2. 2000 | 3
+        // 3. 3000 | 4
+        // 背包格子：bagSize
+        // 求能放入背包的最大价值
         // 当为物品i，背包n时的最大价值
         int[][] dp = new int[value.length+1][bagSize+1];
         for (int i = 1; i <= value.length; i++) {
