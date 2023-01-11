@@ -7,16 +7,16 @@ package com.solution.tuling;
 public class DpForGame {
 
     public static int dp(int[] value, int[] size, int bagSize){
-        // 三个物品，价值和占格分别为
+        // 三个物品,价值和占格分别为
         // 1. 1500 | 1
         // 2. 2000 | 3
         // 3. 3000 | 4
         // 背包格子：bagSize
         // 求能放入背包的最大价值
-        // 当为物品i，背包n时的最大价值
+        // 当为物品i,背包n时的最大价值
         int[][] dp = new int[value.length+1][bagSize+1];
         for (int i = 1; i <= value.length; i++) {
-            // 遍历背包的格子，计算当格子大小为n时的最大价值
+            // 遍历背包的格子,计算当格子大小为n时的最大价值
             for (int n = 1; n <= bagSize; n++) {
                 // 当前物品所占格子数
                 int m = size[i-1];
@@ -38,6 +38,7 @@ public class DpForGame {
         System.out.println(dp(new int[]{1500, 2000, 3000}, new int[]{1,3,4}, 5));
         System.out.println(dp(new int[]{10, 20, 50}, new int[]{1,2,4}, 5));
         System.out.println(dp(new int[]{6, 10, 12}, new int[]{1,2,4}, 5));
+        System.out.println(dp(new int[]{9, 9, 9, 7, 6, 8, 5}, new int[]{1,4,2,1,1,2,1}, 6));
     }
 
     public int balancedStringSplit(String s) {
